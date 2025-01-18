@@ -161,10 +161,8 @@ Contributions are welcome! Please follow these steps:
 
 ## 📞 Support
 For questions or issues, contact:
-- **Email**: support@yourdomain.com
-- **GitHub Issues**: [Create an Issue](https://github.com/YourUsername/Finance_Agent/issues)
+- **Email**: hardiksharmaa007@gmail.com
+
 
 ---
 
-## 📜 License
-This project is licensed under the [MIT License](LICENSE).
