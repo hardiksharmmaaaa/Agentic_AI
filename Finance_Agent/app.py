@@ -7,7 +7,7 @@ from phi.tools.duckduckgo import DuckDuckGo
 web_Search_agent = Agent(
     name="Web Search Agent",
     role="Search the web for the information",
-    model=Groq(id="llama-3.1-70b-versatile"),
+    model=Groq(id="llama3-8b-8192"),
     tools=[DuckDuckGo()],
     instructions=["Always include the source from where you parse the information"],
     show_tool_calls=True,
@@ -17,7 +17,7 @@ web_Search_agent = Agent(
 #making the finance agent 
 finance_agent = Agent(
     name="Finance Agent",
-    model=Groq(id="llama-3.1-70b-versatile"),
+    model=Groq(id="llama3-8b-8192"),
     tools=[YFinanceTools(stock_price=True, analyst_recommendations=True, company_info=True, company_news=True)],
     instructions=["Use tables to display data"],
     show_tool_calls=True, #it will show what all tools are there
@@ -28,7 +28,7 @@ finance_agent = Agent(
 # Combining both the agents to make MultiModal 
 multi_ai_agent=Agent(
     team=[web_Search_agent,finance_agent],
-    model=Groq(id="llama-3.1-70b-versatile"),
+    model=Groq(id="llama3-8b-8192"),
     instructions=["Always include sources", "Use tables to display data"],
     show_tool_calls=True,
     markdown=True,
