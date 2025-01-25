@@ -38,7 +38,7 @@ multi_ai_agent = Agent(
     show_tool_calls=True,
     markdown=True,
 )
-multi_ai_agent.print_response("share the latest news for NVDA", stream=True)
+multi_ai_agent.print_response("share the latest news for Zomato", stream=True)
 
 # Initialize Playground properly
 apps = Playground(agents=[finance_agent, web_Search_agent]).get_app()
