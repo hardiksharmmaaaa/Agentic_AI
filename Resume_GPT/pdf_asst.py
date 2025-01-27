@@ -4,25 +4,22 @@ from phi.assistant import Assistant  # Independent AI -> Will assist for differe
 from phi.storage.assistant.postgres import PgAssistantStorage  # For storage
 from phi.knowledge.pdf import PDFKnowledgeBase  # Reading the content of the PDF
 from phi.vectordb.pgvector import PgVector  # For vector database integration
-from groq import Groq  # Groq API integration
 
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load environment variable
 load_dotenv()
 
-# Set the Groq API key
-groq_api_key = os.getenv("GROQ_API_KEY")
-if not groq_api_key:
-    raise ValueError("GROQ_API_KEY environment variable is not set")
+os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
 
 # Setting up the DB URL
 db_url = "postgresql+psycopg://ai:ai@localhost:5532/ai"
 
 # Creating the Knowledge Base
 knowledge_base = PDFKnowledgeBase(
-    urls=["https://drive.google.com/open?id=1PeYytj2Z6XgBhBPM9CvnUIC81pQCHUzN"],  # Add links to resumes here
+
+    urls=["https://drive.google.com/file/d/1-8cvK7BJ4WFQ73mUxn7qW9MIDPNim00k/view?usp=drive_link"],  # Add links to resumes here 1. Riddhima's Resume 
     path="./pdf_storage",  # Specify a directory to store or read the PDFs
     vector_db=PgVector(db_url=db_url, table_name="Resume")  # Vector DB integration
 )
